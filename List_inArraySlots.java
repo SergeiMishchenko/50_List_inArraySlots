@@ -124,8 +124,10 @@ public class List_inArraySlots {
             elements[ index] = value; // store new value
         }
      }
-
-
+     public void addAtHead( int value) {
+        add (0, value); //adds at beginning of the list
+        
+     }
      /**
       Remove the element at position @index in this list.
 
