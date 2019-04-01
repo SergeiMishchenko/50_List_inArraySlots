@@ -76,8 +76,8 @@ public class List_inArraySlots {
     // --------- end of "code that worked in v0" ---------
 
 
+    // accessors
     /**
-      accessor
       @return element @index from this list
       precondition: @index is within the bounds of the array.
           (Having warned the user about this precondition,
@@ -110,24 +110,22 @@ public class List_inArraySlots {
       and any subsequent elements to the right
       (that is, increase the index associated with each).
      */
-     public void add( int index, int value) {
+    public void add( int index, int value) {
         if( index == filledElements) // adding at end of list
             add( value);
         else {// need space
              // open up space, expanding if necessary
              add( elements[ filledElements-1]);
-
+      
              // move the hole left / shift "subsequent elements" right
              for( int hole = filledElements-1; hole > index; hole--)
                  elements[ hole] = elements[ hole-1];
-
+      
             elements[ index] = value; // store new value
         }
-     }
-     public void addAtHead( int value) {
-        add (0, value); //adds at beginning of the list
-        
-     }
+    }
+
+
      /**
       Remove the element at position @index in this list.
 
@@ -136,7 +134,7 @@ public class List_inArraySlots {
 
       @return the value that was removed from the list
      */
-     public int remove( int index) {
+    public int remove( int index) {
         int result = elements[ index];  // save for returning
 
         for( int put = index; put < filledElements-1; put++)
@@ -144,5 +142,5 @@ public class List_inArraySlots {
 
         filledElements--;
         return result;
-     }
+    }
 }
